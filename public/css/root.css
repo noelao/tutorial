@@ -1,0 +1,18 @@
+:root {
+    --bg-page:      #FAFAF8;
+    --bg-surface:   #FFFFFF;
+    --bg-code:      #F0F0EC;
+    --bg-active:    #F7F7F5;
+
+    --border:       #E8E8E4;
+    --border-code:  #E4E4DF;
+
+    --text-primary: #111111;
+    --text-body:    #555555;
+    --text-muted:   #AAAAAA;
+
+    --accent:       #111111;
+
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+}

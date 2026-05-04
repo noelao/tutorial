@@ -3,6 +3,7 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const port = process.env.PORT || 3000;
+const path = require('path');
 
 // Middleware
 app.use(express.static('public'));
@@ -15,13 +16,24 @@ app.use((req, res, next) => {
 // Setup EJS
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
-app.set('layout', 'layouts/main'); // Opsional jika pakai layouts
+app.set('layout', 'layouts/main');
+
+
+
+app.locals.viewsDir = path.join(__dirname, 'views');
 
 
 // Routes
 app.use('/', require('./routes/home'));
+app.use('/docs', require('./routes/docs'));
 
 
+app.use((req, res, next) => {
+    res.status(404).render('404', { 
+        title: '404 - Halaman Tidak Ditemukan',
+        layout: 'layouts/main' // Pastikan ini merujuk ke layout yang benar
+    });
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

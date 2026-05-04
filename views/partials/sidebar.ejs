@@ -1,0 +1,123 @@
+<%
+/*
+  sidebar.ejs — Partial sidebar navigasi
+  Variabel yang dibutuhkan:
+    - activePage: string — slug halaman aktif, contoh: 'quick-start', 'routing', 'app-get'
+*/
+
+const navSections = [
+  {
+    label: 'Getting Started',
+    labelSlug: 'getting-started',
+    items: [
+      { slug: 'introduction',  label: 'Introduction' },
+      { slug: 'about',  label: 'About' },
+      { slug: 'pegangan',  label: 'Pegangan' },
+    ]
+  },
+  {
+    label: 'Design',
+    labelSlug: 'design',Slug: 'design',
+    items: [
+      { slug: 'Composition',       label: 'Composition' },
+      { slug: 'color-decision', label: 'Color Decision', badge: { text: 'new', type: 'badge-new' } },
+      { slug: 'get-media',  label: 'Get Media',   badge: { text: 'v1',  type: 'badge-dep' } },
+    ]
+  }
+]
+%>
+
+<style>
+  .sidebar {
+    width: var(--sidebar-w); flex-shrink: 0;
+    padding: 28px 16px 40px 0;
+    position: sticky; top: var(--topbar-h);
+    height: calc(100vh - var(--topbar-h));
+    overflow-y: auto; border-right: 1px solid var(--border);
+
+    &::-webkit-scrollbar { width: 3px; }
+    &::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .sb-section { margin-bottom: 22px; }
+
+    .sb-label {
+      font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--text-muted); padding: 0 8px; margin-bottom: 5px;
+    }
+
+    .sb-link {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--text-body);
+      padding: 5px 8px;
+      border-left: 2px solid transparent;
+      transition: color .12s, background .12s, border-color .12s;
+      cursor: pointer; line-height: 1.4;
+      text-decoration: none;
+
+      &:hover { color: var(--text-primary); background: var(--bg-active); }
+
+      &.active {
+        color: var(--text-primary); font-weight: 500;
+        background: var(--bg-active); border-left-color: var(--accent);
+      }
+    }
+
+    .sb-badge {
+      font-family: var(--font-mono); font-size: 9.5px;
+      padding: 1px 5px; border-radius: 3px;
+
+      &.badge-new { background: #E8F4EE; color: #2D6A4F; }
+      &.badge-dep { background: #FEF3C7; color: #92400E; }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .sidebar .sb-badge {
+      &.badge-new { background: #0A2E1F; color: #6EE7B7; }
+      &.badge-dep { background: #2A1F08; color: #FCD34D; }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed; top: var(--topbar-h); left: 0;
+      width: 280px; height: calc(100vh - var(--topbar-h));
+      z-index: 90; background: var(--bg-surface);
+      border-right: 1px solid var(--border);
+      transform: translateX(-100%);
+      transition: transform .25s ease;
+      padding: 20px 16px 40px;
+
+      &.open { transform: translateX(0); }
+    }
+
+    .sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0; top: var(--topbar-h);
+      z-index: 80; background: rgba(0,0,0,0.25);
+
+      &.open { display: block; }
+    }
+  }
+</style>
+
+<aside class="sidebar" id="sidebar">
+  <% navSections.forEach(section => { %>
+    <div class="sb-section">
+      <div class="sb-label"><%= section.label %></div>
+
+      <% section.items.forEach(item => { %>
+        <a
+          class="sb-link <%= activePage === item.slug ? 'active' : '' %>"
+          href="/docs/<%= section.labelSlug %>/<%= item.slug %>"
+        >
+          <%= item.label %>
+          <% if (item.badge) { %>
+            <span class="sb-badge <%= item.badge.type %>"><%= item.badge.text %></span>
+          <% } %>
+        </a>
+      <% }) %>
+    </div>
+  <% }) %>
+</aside>

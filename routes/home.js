@@ -3,7 +3,19 @@ const home = express.Router();
 
 // Route untuk homepage
 home.get('/', (req, res) => {
+
     res.render('home');
+});
+
+
+home.get('/mulai', (req, res) => {
+    const paket = {
+        pageTitle: 'introduction',
+        activeNav: 'docs',
+        activePage: 'introduction'
+    };
+    
+    res.render('pages/introduction', paket);
 });
 
 // Route untuk halaman tentang
