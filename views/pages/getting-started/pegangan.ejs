@@ -1,102 +1,561 @@
+<%# ============================================================
+    styleguide.ejs — Visual component reference
+    Semua class yang tersedia ditampilkan di sini sebagai pegangan
+    saat menulis halaman dokumentasi baru.
+    ============================================================ %>
+
 <div class="breadcrumb">
-  Getting Started <span>›</span> Introduction
+  Section Name <span>›</span> Page Name
 </div>
 
+
+<!-- ════════════════════════════════════════════
+     PAGE HEADER
+     class: .page-header, .tag-row, .tag, .page-title, .page-desc
+     ════════════════════════════════════════════ -->
 <div class="page-header">
   <div class="tag-row">
     <span class="tag">v2.1.0</span>
     <span class="tag tag-green">Stable</span>
-    <span class="tag tag-blue">3 min read</span>
+    <span class="tag tag-blue">5 min read</span>
+    <span class="tag tag-red">Deprecated</span>
+    <span class="tag tag-yellow">Beta</span>
   </div>
-  <h1 class="page-title">Introduction</h1>
+  <h1 class="page-title">Style Guide</h1>
   <p class="page-desc">
-    Velox adalah framework ringan berbasis Express dan EJS untuk membangun
-    aplikasi web dengan cepat, tanpa konfigurasi yang rumit.
+    Referensi visual semua komponen yang tersedia. Gunakan file ini sebagai
+    pegangan saat menulis halaman dokumentasi baru.
   </p>
 </div>
 
+
 <div class="content">
 
-  <h2>Apa itu Velox?</h2>
+
+  <!-- ════════════════════════════════════════════
+       TYPOGRAPHY
+       ════════════════════════════════════════════ -->
+  <h2>Typography — h2</h2>
+  <h3>Sub section label — h3</h3>
+  <h4>Sub heading — h4</h4>
+
   <p>
-    Velox adalah layer tipis di atas Express yang menyediakan struktur folder,
-    konvensi routing, dan sistem templating berbasis EJS secara out-of-the-box.
-    Cocok untuk aplikasi web server-rendered yang butuh setup cepat.
+    Ini adalah paragraf biasa dengan <code>inline code</code>, teks
+    <strong>bold</strong>, teks <em>italic</em>, dan
+    <a href="#">link dengan underline</a>.
+    Gunakan untuk menjelaskan konsep atau memberikan konteks.
   </p>
+
+  <blockquote>
+    Ini adalah blockquote. Cocok untuk kutipan, catatan penting,
+    atau highlight kalimat dari sumber lain.
+  </blockquote>
+
+  <hr>
+
+  <!-- ── List ── -->
+  <h2>List</h2>
+
+  <p>Unordered list:</p>
+  <ul>
+    <li>Item pertama dengan <code>inline code</code></li>
+    <li>Item kedua dengan teks biasa</li>
+    <li>Item ketiga
+      <ul>
+        <li>Sub item satu</li>
+        <li>Sub item dua</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>Ordered list:</p>
+  <ol>
+    <li>Langkah pertama</li>
+    <li>Langkah kedua</li>
+    <li>Langkah ketiga
+      <ol>
+        <li>Sub langkah satu</li>
+        <li>Sub langkah dua</li>
+      </ol>
+    </li>
+  </ol>
+
+
+  <!-- ════════════════════════════════════════════
+       TAGS
+       class: .tag, .tag-green, .tag-blue, .tag-red, .tag-yellow
+       ════════════════════════════════════════════ -->
+  <h2>Tags</h2>
+  <p>Digunakan di <code>.tag-row</code> dalam page header.</p>
+  <div class="tag-row">
+    <span class="tag">default</span>
+    <span class="tag tag-green">green</span>
+    <span class="tag tag-blue">blue</span>
+    <span class="tag tag-red">red</span>
+    <span class="tag tag-yellow">yellow</span>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       BADGE
+       class: .badge, .badge-default, .badge-green, .badge-blue,
+              .badge-red, .badge-yellow, .badge-purple
+       ════════════════════════════════════════════ -->
+  <h2>Badge <span class="badge badge-green">new</span></h2>
+  <p>
+    Badge bisa disisipkan inline di dalam teks atau heading.
+    Contoh: status
+    <span class="badge badge-default">default</span>
+    <span class="badge badge-green">stable</span>
+    <span class="badge badge-blue">beta</span>
+    <span class="badge badge-red">deprecated</span>
+    <span class="badge badge-yellow">experimental</span>
+    <span class="badge badge-purple">internal</span>
+  </p>
+
+
+  <!-- ════════════════════════════════════════════
+       CALLOUT
+       class: .callout, .callout-info, .callout-warn,
+              .callout-success, .callout-danger
+       ════════════════════════════════════════════ -->
+  <h2>Callout</h2>
 
   <div class="callout callout-info">
     <div class="callout-label">Info</div>
-    Velox tidak menggantikan Express — ia berjalan di atasnya.
-    Semua API Express tetap bisa digunakan secara penuh.
+    Informasi tambahan yang berguna. Mendukung <code>inline code</code> di dalamnya.
+    Warna biru.
   </div>
 
-  <h2>Kenapa Velox?</h2>
-  <p>
-    Memulai project Express dari nol butuh banyak keputusan kecil: struktur folder,
-    cara handle view, static files, error handling, dan sebagainya. Velox menyediakan
-    semua itu dengan konvensi yang sudah teruji, sehingga kamu bisa fokus ke logika
-    aplikasi.
-  </p>
+  <div class="callout callout-warn">
+    <div class="callout-label">Perhatian</div>
+    Peringatan — sesuatu yang perlu diperhatikan sebelum melanjutkan.
+    Warna kuning/oranye.
+  </div>
 
-  <h2>Fitur utama</h2>
-  <p>
-    Beberapa hal yang langsung tersedia begitu kamu install Velox:
-  </p>
+  <div class="callout callout-success">
+    <div class="callout-label">Berhasil</div>
+    Konfirmasi atau hasil yang diharapkan. Warna hijau.
+  </div>
+
+  <div class="callout callout-danger">
+    <div class="callout-label">Bahaya</div>
+    Peringatan kritis — tindakan ini tidak bisa dibatalkan atau bisa
+    menyebabkan kerusakan data. Warna merah.
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       CODEBLOCK — tanpa copy button
+       class: .codeblock, .codeblock-header, .codeblock-lang, .codeblock-body
+       ════════════════════════════════════════════ -->
+  <h2>Codeblock — Tanpa Copy Button</h2>
+  <p>Cocok untuk output terminal atau struktur folder.</p>
 
   <div class="codeblock">
     <div class="codeblock-header">
       <span class="codeblock-lang">text</span>
     </div>
-    <div class="codeblock-body">✓  Routing berbasis file
-✓  Templating EJS dengan layout system
-✓  Static file serving otomatis
-✓  Error handling terpusat
-✓  Hot reload saat development</div>
+    <div class="codeblock-body">Ini adalah output teks biasa.
+Tidak ada copy button di header.</div>
   </div>
 
-  <h2>Stack yang digunakan</h2>
+
+  <!-- ════════════════════════════════════════════
+       CODEBLOCK — dengan copy button
+       class: .copy-btn  |  fn: copyCode(btn, text)
+       ════════════════════════════════════════════ -->
+  <h2>Codeblock — Dengan Copy Button</h2>
+
+  <div class="codeblock">
+    <div class="codeblock-header">
+      <span class="codeblock-lang">bash</span>
+      <button class="copy-btn" onclick="copyCode(this, 'npm install express ejs')">copy</button>
+    </div>
+    <div class="codeblock-body">npm install express ejs</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       CODEBLOCK — dengan filename
+       class: .codeblock-filename
+       ════════════════════════════════════════════ -->
+  <h2>Codeblock — Dengan Filename</h2>
+
+  <div class="codeblock">
+    <div class="codeblock-header">
+      <span class="codeblock-filename">index.js</span>
+      <button class="copy-btn" onclick="copyCode(this, `const express = require('express')\nconst app = express()`)">copy</button>
+    </div>
+    <div class="codeblock-body"><span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>)
+<span class="kw">const</span> app     = <span class="fn">express</span>()</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       CODEBLOCK — syntax highlight
+       class: .kw .fn .str .cm .num .op .var
+       ════════════════════════════════════════════ -->
+  <h2>Codeblock — Syntax Highlight</h2>
+  <p>
+    Semua class highlight yang tersedia:
+    <code>.kw</code> keyword,
+    <code>.fn</code> function,
+    <code>.str</code> string,
+    <code>.cm</code> comment,
+    <code>.num</code> number,
+    <code>.op</code> operator,
+    <code>.var</code> variable/property.
+  </p>
+
+  <div class="codeblock">
+    <div class="codeblock-header">
+      <span class="codeblock-lang">javascript</span>
+      <button class="copy-btn" onclick="copyCode(this, '// contoh syntax highlight')">copy</button>
+    </div>
+    <div class="codeblock-body"><span class="cm">// ini comment — .cm</span>
+<span class="kw">const</span> port = <span class="num">3000</span>          <span class="cm">// .kw dan .num</span>
+<span class="kw">const</span> app  = <span class="fn">express</span>()     <span class="cm">// .fn</span>
+
+app.<span class="var">locals</span>.<span class="var">title</span> = <span class="str">'Velox'</span>  <span class="cm">// .var dan .str</span>
+
+<span class="kw">if</span> (port <span class="op">===</span> <span class="num">3000</span>) {           <span class="cm">// .op</span>
+  app.<span class="fn">listen</span>(port)
+}</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       CODEBLOCK — line highlight
+       class: .line-highlight (span display:block)
+       ════════════════════════════════════════════ -->
+  <h2>Codeblock — Line Highlight</h2>
+  <p>Gunakan <code>&lt;span class="line-highlight"&gt;</code> membungkus baris yang ingin disorot.</p>
+
+  <div class="codeblock">
+    <div class="codeblock-header">
+      <span class="codeblock-lang">javascript</span>
+    </div>
+    <div class="codeblock-body"><span class="kw">const</span> app = <span class="fn">express</span>()
+
+app.<span class="fn">set</span>(<span class="str">'view engine'</span>, <span class="str">'ejs'</span>)
+<span class="line-highlight">app.<span class="fn">set</span>(<span class="str">'views'</span>, path.<span class="fn">join</span>(__dirname, <span class="str">'views'</span>))  <span class="cm">← baris ini di-highlight</span></span>
+app.<span class="fn">use</span>(express.<span class="fn">static</span>(<span class="str">'public'</span>))</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       TABS — codeblock multi-tab
+       class: .tabs, .tab-header, .tab-btn, .tab-actions, .tab-panel
+       ════════════════════════════════════════════ -->
+  <h2>Tabs — Codeblock Multi-Tab</h2>
+
+  <div class="tabs" id="tabs-example">
+    <div class="tab-header">
+      <button class="tab-btn active" onclick="switchTab('tabs-example', 'js', this)">JavaScript</button>
+      <button class="tab-btn" onclick="switchTab('tabs-example', 'ts', this)">TypeScript</button>
+      <button class="tab-btn" onclick="switchTab('tabs-example', 'bash', this)">Bash</button>
+      <div class="tab-actions">
+        <button class="copy-btn" onclick="copyActiveTab('tabs-example')">copy</button>
+      </div>
+    </div>
+    <div class="tab-panel active" data-tab="js"><span class="kw">const</span> app = <span class="fn">express</span>()
+app.<span class="fn">listen</span>(<span class="num">3000</span>)</div>
+    <div class="tab-panel" data-tab="ts"><span class="kw">import</span> express <span class="kw">from</span> <span class="str">'express'</span>
+<span class="kw">const</span> app = <span class="fn">express</span>()
+app.<span class="fn">listen</span>(<span class="num">3000</span>)</div>
+    <div class="tab-panel" data-tab="bash">npm install express
+node index.js</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       PARAMS TABLE
+       class: .params-wrap, .params-table, .p-type, .p-req, .p-default
+       ════════════════════════════════════════════ -->
+  <h2>Params Table</h2>
 
   <div class="params-wrap">
     <table class="params-table">
       <thead>
         <tr>
-          <th>Teknologi</th>
-          <th>Versi</th>
+          <th>Parameter</th>
+          <th>Type</th>
           <th>Keterangan</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><code>Node.js</code></td>
-          <td><span class="p-type">≥ 18</span></td>
-          <td>Runtime JavaScript server-side.</td>
+          <td><code>name</code> <span class="p-req">required</span></td>
+          <td><span class="p-type">string</span></td>
+          <td>Nama parameter wajib diisi.</td>
         </tr>
         <tr>
-          <td><code>Express</code></td>
-          <td><span class="p-type">^4.18</span></td>
-          <td>Framework HTTP minimalis dan fleksibel.</td>
+          <td><code>options</code></td>
+          <td><span class="p-type">object</span></td>
+          <td>Opsi tambahan. Default: <span class="p-default">{}</span></td>
         </tr>
         <tr>
-          <td><code>EJS</code></td>
-          <td><span class="p-type">^3.1</span></td>
-          <td>Template engine dengan sintaks JavaScript murni.</td>
+          <td><code>callback</code></td>
+          <td><span class="p-type">function</span></td>
+          <td>Dipanggil setelah proses selesai dengan <code>(err, result)</code>.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="callout callout-success">
-    <div class="callout-label">Siap mulai?</div>
-    Lanjut ke halaman berikutnya untuk menginstall Velox di project kamu.
+
+  <!-- ════════════════════════════════════════════
+       STEPS
+       class: .steps, .step, .step-num, .step-body, .step-title
+       ════════════════════════════════════════════ -->
+  <h2>Steps</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Install dependencies</div>
+        <p>Jalankan perintah berikut di root project kamu.</p>
+        <div class="codeblock">
+          <div class="codeblock-header">
+            <span class="codeblock-lang">bash</span>
+            <button class="copy-btn" onclick="copyCode(this, 'npm install express ejs')">copy</button>
+          </div>
+          <div class="codeblock-body">npm install express ejs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Buat file index.js</div>
+        <p>Buat file entry point dan setup Express di dalamnya.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Jalankan server</div>
+        <p>Server siap diakses di <code>http://localhost:3000</code>.</p>
+      </div>
+    </div>
   </div>
 
 
-  <div class="doc-nav">
-    <div class="doc-nav-item" style="visibility:hidden"></div>
-    <a class="doc-nav-item next" href="/docs/getting-started/about">
-      <span class="doc-nav-dir">Selanjutnya →</span>
-      <span class="doc-nav-title">About</span>
+  <!-- ════════════════════════════════════════════
+       CARD GRID
+       class: .card-grid, .card, .card-title, .card-desc, .card-link
+       ════════════════════════════════════════════ -->
+  <h2>Card Grid</h2>
+
+  <div class="card-grid">
+    <a class="card" href="#">
+      <div class="card-title">Routing</div>
+      <div class="card-desc">Pelajari cara mendefinisikan route dan menangani request.</div>
+      <span class="card-link">Baca selengkapnya →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-title">Middleware</div>
+      <div class="card-desc">Gunakan middleware untuk memproses request sebelum sampai ke handler.</div>
+      <span class="card-link">Baca selengkapnya →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-title">Templates EJS</div>
+      <div class="card-desc">Render HTML dinamis dengan EJS dan layout system bawaan.</div>
+      <span class="card-link">Baca selengkapnya →</span>
+    </a>
+    <a class="card" href="#">
+      <div class="card-title">Error Handling</div>
+      <div class="card-desc">Tangani error secara terpusat agar aplikasi tetap stabil.</div>
+      <span class="card-link">Baca selengkapnya →</span>
     </a>
   </div>
 
+
+  <!-- ════════════════════════════════════════════
+       DIVIDER
+       class: .divider, .divider-label
+       ════════════════════════════════════════════ -->
+  <h2>Divider</h2>
+
+  <p>Divider biasa:</p>
+  <hr class="divider">
+
+  <p>Divider dengan label:</p>
+  <div class="divider-label">atau</div>
+
+
+  <!-- ════════════════════════════════════════════
+       COMPARE TABLE
+       class: .compare-table, .check, .cross, .partial
+       ════════════════════════════════════════════ -->
+  <h2>Compare Table</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Fitur</th>
+        <th>Velox</th>
+        <th>Express (bare)</th>
+        <th>Next.js</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Setup cepat</td>
+        <td><span class="check">✓</span></td>
+        <td><span class="cross">✗</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+      <tr>
+        <td>EJS support</td>
+        <td><span class="check">✓</span></td>
+        <td><span class="partial">~</span></td>
+        <td><span class="cross">✗</span></td>
+      </tr>
+      <tr>
+        <td>File-based routing</td>
+        <td><span class="partial">~</span></td>
+        <td><span class="cross">✗</span></td>
+        <td><span class="check">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ════════════════════════════════════════════
+       KEYBOARD SHORTCUT LIST
+       class: .shortcut-list, .shortcut-item, .shortcut-keys, .kbd
+       ════════════════════════════════════════════ -->
+  <h2>Keyboard Shortcut List</h2>
+
+  <div class="shortcut-list">
+    <div class="shortcut-item">
+      <span>Buka search</span>
+      <div class="shortcut-keys">
+        <span class="kbd">⌘</span>
+        <span class="kbd">K</span>
+      </div>
+    </div>
+    <div class="shortcut-item">
+      <span>Navigasi ke atas</span>
+      <div class="shortcut-keys">
+        <span class="kbd">↑</span>
+      </div>
+    </div>
+    <div class="shortcut-item">
+      <span>Navigasi ke bawah</span>
+      <div class="shortcut-keys">
+        <span class="kbd">↓</span>
+      </div>
+    </div>
+    <div class="shortcut-item">
+      <span>Pilih item</span>
+      <div class="shortcut-keys">
+        <span class="kbd">Enter</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       FILE TREE
+       class: .file-tree, .ft-dir, .ft-file, .ft-note, .ft-new
+       ════════════════════════════════════════════ -->
+  <h2>File Tree</h2>
+
+  <div class="file-tree">
+<span class="ft-dir">project/</span>
+├── <span class="ft-dir">views/</span>
+│   ├── <span class="ft-dir">layout/</span>
+│   │   └── <span class="ft-file">main.ejs</span>
+│   ├── <span class="ft-dir">partials/</span>
+│   │   └── <span class="ft-file">sidebar.ejs</span>
+│   └── <span class="ft-dir">pages/</span>
+│       ├── <span class="ft-file">introduction.ejs</span>
+│       └── <span class="ft-new">quick-start.ejs</span><span class="ft-note">← baru ditambahkan</span>
+├── <span class="ft-dir">public/</span>
+│   └── <span class="ft-dir">css/</span>
+│       └── <span class="ft-file">main.css</span>
+├── <span class="ft-dir">routes/</span>
+│   └── <span class="ft-file">docs.js</span>
+├── <span class="ft-file">index.js</span>
+└── <span class="ft-file">package.json</span>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       IMAGE WRAP
+       class: .img-wrap, .img-caption
+       ════════════════════════════════════════════ -->
+  <h2>Image Wrap</h2>
+
+  <div class="img-wrap">
+    <img src="https://placehold.co/680x320/F0F0EC/AAAAAA?text=screenshot" alt="Contoh screenshot">
+    <div class="img-caption">Gambar 1 — Tampilan halaman dokumentasi.</div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════
+       DOC NAV
+       class: .doc-nav, .doc-nav-item, .next, .doc-nav-dir, .doc-nav-title
+       ════════════════════════════════════════════ -->
+  <h2>Doc Nav</h2>
+
+  <p>Normal (ada prev dan next):</p>
+  <div class="doc-nav">
+    <a class="doc-nav-item" href="#">
+      <span class="doc-nav-dir">← Sebelumnya</span>
+      <span class="doc-nav-title">Installation</span>
+    </a>
+    <a class="doc-nav-item next" href="#">
+      <span class="doc-nav-dir">Selanjutnya →</span>
+      <span class="doc-nav-title">Configuration</span>
+    </a>
+  </div>
+
+  <p>Halaman pertama (tidak ada prev):</p>
+  <div class="doc-nav">
+    <div class="doc-nav-item" style="visibility:hidden"></div>
+    <a class="doc-nav-item next" href="#">
+      <span class="doc-nav-dir">Selanjutnya →</span>
+      <span class="doc-nav-title">Installation</span>
+    </a>
+  </div>
+
+  <p>Halaman terakhir (tidak ada next):</p>
+  <div class="doc-nav">
+    <a class="doc-nav-item" href="#">
+      <span class="doc-nav-dir">← Sebelumnya</span>
+      <span class="doc-nav-title">Database Integration</span>
+    </a>
+    <div class="doc-nav-item" style="visibility:hidden"></div>
+  </div>
+
 </div>
+
+<!-- ── Script tabs ── -->
+<script>
+  function switchTab(containerId, tabId, btn) {
+    const container = document.getElementById(containerId)
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'))
+    btn.classList.add('active')
+    container.querySelector(`[data-tab="${tabId}"]`).classList.add('active')
+  }
+
+  function copyActiveTab(containerId) {
+    const container  = document.getElementById(containerId)
+    const activePanel = container.querySelector('.tab-panel.active')
+    const text = activePanel ? activePanel.innerText : ''
+    const btn  = container.querySelector('.tab-actions .copy-btn')
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!'
+      btn.classList.add('copied')
+      setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied') }, 2000)
+    })
+  }
+</script>

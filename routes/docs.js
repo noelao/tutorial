@@ -2,7 +2,7 @@ const express = require('express');
 const docs    = express.Router();
 
 docs.get('/', (req, res) => {
-  res.redirect('/docs/introduction');
+  res.redirect('/docs/getting-started/introduction');
 });
 
 docs.get('/:id/:subid', (req, res) => {
