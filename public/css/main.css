@@ -160,6 +160,16 @@ a { color: inherit; text-decoration: none; }
     .page-desc {
         font-size: 14.5px; color: var(--text-body); line-height: 1.8;
     }
+    
+    a {
+        color: var(--text-primary);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: var(--border);
+        transition: text-decoration-color .15s;
+
+        &:hover { text-decoration-color: var(--text-muted); }
+    }
 }
 
 /* ── Tags ── */

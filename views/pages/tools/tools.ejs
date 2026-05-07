@@ -1,0 +1,95 @@
+<div class="breadcrumb">
+  Ancang-ancang <span>›</span> Perkenalan
+</div>
+
+<div class="page-header">
+  <div class="tag-row">
+    <span class="tag tag-yellow">Work In Progress</span>
+  </div>
+  <h1 class="page-title">Alat Kerja</h1>
+  <p class="page-desc">
+    Software adalah perangkat lunak yang memudahkan dalam pekerjaan.
+    Bahkan terkadang kita harus membuat alat kita sendiri demi kenyamanan kerja yang ingin kita capai.
+  </p>
+  
+</div>
+
+<div class="content">
+    <h2>Alat Tulis</h2>
+    
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">VS code</div>
+        <p>Alat tulis coding paling gacor. Dengan Customisasi yang tinggi membuat Vs code lebih bisa beradaptasi dengan kemauan user.</p>
+
+        <ol>
+            <li>
+                Pergi ke direktori project
+                <div class="img-wrap">
+                    <img src="/image/tools/pergiKeDirektori.png" alt="Contoh screenshot">
+                    <div class="img-caption">Gambar 1 — Buka dengan file Explorer.</div>
+                </div>
+            </li>
+            <li>
+                click path dan ketik "cmd"
+                <div class="img-wrap">
+                    <img src="/image/tools/tulisCmd.png" alt="Contoh screenshot">
+                    <div class="img-caption">Gambar 1 — ketik cmd -> enter.</div>
+                </div>
+            </li>
+            <li>lalu di bagian cmd run <code>code .</code>
+                <div class="codeblock">
+                  <div class="codeblock-header">
+                    <span class="codeblock-lang">bash</span>
+                    <button class="copy-btn" onclick="copyCode(this, 'npm install express ejs')">copy</button>
+                  </div>
+                  <div class="codeblock-body">code .</div>
+                </div>
+                kalau kalian run hanya <code>code</code> tidak di sertai spasi dan titik maka <code>vs code</code> akan membuka project yang terkahir kali dibuka.
+            </li>
+            <div class="doc-nav">
+                <div class="doc-nav-item" style="visibility:hidden"></div>
+                <a class="doc-nav-item next" href="/docs/tools/vs-code">
+                <span class="doc-nav-dir">Pelajari Lebih Lanjut →</span>
+                <span class="doc-nav-title">Vs Code</span>
+                </a>
+            </div>
+        </ol>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Postman</div>
+        <p>Memudahkan pengembang melakuakn pull request, dengan visual yang nyaman.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── Script tabs ── -->
+<script>
+  function switchTab(containerId, tabId, btn) {
+    const container = document.getElementById(containerId)
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'))
+    btn.classList.add('active')
+    container.querySelector(`[data-tab="${tabId}"]`).classList.add('active')
+  }
+
+  function copyActiveTab(containerId) {
+    const container  = document.getElementById(containerId)
+    const activePanel = container.querySelector('.tab-panel.active')
+    const text = activePanel ? activePanel.innerText : ''
+    const btn  = container.querySelector('.tab-actions .copy-btn')
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!'
+      btn.classList.add('copied')
+      setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied') }, 2000)
+    })
+  }
+</script>

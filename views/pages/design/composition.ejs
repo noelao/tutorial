@@ -1,0 +1,57 @@
+<div class="breadcrumb">
+  Ancang-ancang <span>›</span> Perkenalan
+</div>
+
+<div class="page-header">
+  <div class="tag-row">
+    <span class="tag tag-yellow">Work In Progress</span>
+  </div>
+  <h1 class="page-title">Composisi Deisgn Web</h1>
+  <p class="page-desc">
+    Demi memudahkan, dan menjaga pengembang untuk menentukan dan menyamakan besar ukuran setiap petakan di dalam sebuah halaman.
+    pengembang harus secara sadar menentukan variable seperti tinggi, dan lebar.
+  </p>
+  
+</div>
+
+<div class="content">
+    <h2>Mencacah Halaman</h2>
+    <p>Membagi 1 lebar halaman penuh menjadi beberapa bagian.</p>
+    
+    <div class="callout callout-info">
+        <div class="callout-label">Info</div>
+        Karena setiap device memiliki lebar halaman yang berbeda maka banyaknya cacahan juga berbeda.
+    </div>
+    
+    <div class="callout callout-warn">
+        <div class="callout-label">Perhatian</div>
+        Hal ini bertujuan mempermudah pengembang, jadi demi kreatifitas, pengembang memiliki kebebasan penuh terhadap webnya, jadi jangan terpaku pada aturan, tetapi aturan memang memudahkan.
+    </div>
+
+    <h4>Lebar Laptop 1440 px</h4>
+
+</div>
+
+
+<!-- ── Script tabs ── -->
+<script>
+  function switchTab(containerId, tabId, btn) {
+    const container = document.getElementById(containerId)
+    container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+    container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'))
+    btn.classList.add('active')
+    container.querySelector(`[data-tab="${tabId}"]`).classList.add('active')
+  }
+
+  function copyActiveTab(containerId) {
+    const container  = document.getElementById(containerId)
+    const activePanel = container.querySelector('.tab-panel.active')
+    const text = activePanel ? activePanel.innerText : ''
+    const btn  = container.querySelector('.tab-actions .copy-btn')
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!'
+      btn.classList.add('copied')
+      setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied') }, 2000)
+    })
+  }
+</script>
