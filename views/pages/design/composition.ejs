@@ -18,17 +18,62 @@
     <h2>Mencacah Halaman</h2>
     <p>Membagi 1 lebar halaman penuh menjadi beberapa bagian.</p>
     
+    <h4>Skill yang di butuhkan</h4>
+    <div class="tag-row">
+      <span class="tag">v2.1.0</span>
+      <span class="tag tag-green">Stable</span>
+      <span class="tag tag-blue">5 min read</span>
+      <span class="tag tag-red">Deprecated</span>
+      <span class="tag tag-yellow">Beta</span>
+    </div>
+    
     <div class="callout callout-info">
         <div class="callout-label">Info</div>
         Karena setiap device memiliki lebar halaman yang berbeda maka banyaknya cacahan juga berbeda.
     </div>
     
+    <h4>Lebar Laptop 1440 px</h4>
+    <p>ada 12 potongan dengan gap <code>12px</code></p>
+
+
+<div class="codeblock">
+  <div class="codeblock-header">
+    <span class="codeblock-filename">style.css</span>
+    <button class="copy-btn" onclick="copyCode(this, `
+    .garisPotong {
+        flex-grow: 1;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 12px;
+        .potong {
+            width: 100%;
+            height: 100%;
+            background-color: var(--biru);
+        }
+    }
+`)">copy</button>
+  </div>
+  <div class="codeblock-body">  <span class="fn">.garisPotong</span> {
+      <span class="kw">display</span>: <span class="str">grid</span>;
+      <span class="kw">grid-template-columns</span>: <span class="fn">repeat</span>(<span class="num">12</span>, <span class="str">1fr</span>);
+      <span class="kw">gap</span>: <span class="num">12px</span>;
+      <span class="fn">.potong</span> {
+          <span class="kw">width</span>:            <span class="str">100%</span>;
+          <span class="kw">height</span>:           <span class="str">100%</span>;
+          <span class="kw">background-color</span>: <span class="fn">var</span>(<span class="var">--biru</span>);
+      }
+  }
+</div>
+</div>
+
+
+
     <div class="callout callout-warn">
         <div class="callout-label">Perhatian</div>
         Hal ini bertujuan mempermudah pengembang, jadi demi kreatifitas, pengembang memiliki kebebasan penuh terhadap webnya, jadi jangan terpaku pada aturan, tetapi aturan memang memudahkan.
     </div>
 
-    <h4>Lebar Laptop 1440 px</h4>
 
 </div>
 

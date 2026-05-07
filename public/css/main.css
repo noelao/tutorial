@@ -160,16 +160,6 @@ a { color: inherit; text-decoration: none; }
     .page-desc {
         font-size: 14.5px; color: var(--text-body); line-height: 1.8;
     }
-    
-    a {
-        color: var(--text-primary);
-        text-decoration: underline;
-        text-underline-offset: 3px;
-        text-decoration-color: var(--border);
-        transition: text-decoration-color .15s;
-
-        &:hover { text-decoration-color: var(--text-muted); }
-    }
 }
 
 /* ── Tags ── */
@@ -300,9 +290,13 @@ a { color: inherit; text-decoration: none; }
         font-family: var(--font-mono); font-size: 11px; color: var(--text-body);
     }
 
+
     .codeblock-body {
         padding: 16px; font-family: var(--font-mono); font-size: 13px;
         line-height: 1.75; color: var(--text-primary); overflow-x: auto;
+
+        /* tambahkan ini */
+        white-space: pre;
 
         &::-webkit-scrollbar { height: 3px; }
         &::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -655,6 +649,73 @@ a { color: inherit; text-decoration: none; }
     }
 }
 
+/* ── Skill required ── */
+.skill-required {
+    display: flex; flex-direction: column; gap: 10px;
+    background: var(--bg-surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 14px 16px;
+    margin: 16px 0;
+
+    .skill-required-label {
+        font-size: 10px; font-weight: 600; letter-spacing: 0.07em;
+        text-transform: uppercase; font-family: var(--font-mono);
+        color: var(--text-muted); margin-bottom: 2px;
+    }
+
+    .skill-item {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 8px 0; border-bottom: 1px solid var(--border);
+
+        &:last-child { border-bottom: none; padding-bottom: 0; }
+        &:first-of-type { padding-top: 0; }
+
+        .skill-left {
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .skill-icon {
+            width: 28px; height: 28px; border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+            flex-shrink: 0;
+
+            &.icon-html { background: #FEE2E2; color: #991B1B; }
+            &.icon-css  { background: #EBF2FB; color: #185FA5; }
+            &.icon-js   { background: #FEF3C7; color: #92400E; }
+            &.icon-node { background: #E8F4EE; color: #2D6A4F; }
+            &.icon-ts   { background: #EBF2FB; color: #185FA5; }
+            &.icon-sql  { background: #EDE9FE; color: #5B21B6; }
+        }
+
+        .skill-info {
+            display: flex; flex-direction: column; gap: 1px;
+        }
+
+        .skill-name {
+            font-size: 13px; font-weight: 500; color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .skill-level {
+            font-size: 11px; color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .skill-dots {
+            display: flex; align-items: center; gap: 4px;
+        }
+
+        .skill-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+
+            &.dot-filled-green  { background: #1D9E75; }
+            &.dot-filled-blue   { background: #378ADD; }
+            &.dot-filled-yellow { background: #EF9F27; }
+            &.dot-empty         { background: var(--border); }
+        }
+    }
+}
+
 /* ── Dark mode — dikontrol via class, bukan media query ── */
 :root.dark {
     --bg-page:      #111110;
@@ -702,4 +763,24 @@ a { color: inherit; text-decoration: none; }
     .line-highlight { background: rgba(255,255,255,0.04); }
 
     .compare-table th { background: #1E1E1C; }
+
+    .skill-required {
+        background: #1A1A19; border-color: #2A2A28;
+
+        .skill-required-label { color: #606058; }
+
+        .skill-item {
+            border-color: #2A2A28;
+
+            .skill-name  { color: #A0A09A; }
+            .skill-level { color: #606058; }
+        }
+
+        .skill-dot {
+            &.dot-filled-green  { background: #1D9E75; }
+            &.dot-filled-blue   { background: #378ADD; }
+            &.dot-filled-yellow { background: #EF9F27; }
+            &.dot-empty         { background: #2A2A28; }
+        }
+    }
 }

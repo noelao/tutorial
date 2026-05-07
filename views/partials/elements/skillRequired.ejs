@@ -1,0 +1,55 @@
+<%#
+  skillRequired.ejs — Partial prerequisite skill indicator
+  
+  Cara pakai:
+  <%- include('../../partials/elements/skillRequired', { skills: [...] }) %>
+
+  Format skills array:
+  [
+    {
+      icon: 'html',           // html | css | js | node | ts | sql
+      name: 'HTML',           // label nama
+      level: 'Beginner',      // Beginner | Intermediate | Advanced
+      filled: 1               // jumlah dot terisi: 1 | 2 | 3
+    }
+  ]
+%>
+
+<%
+const DOT_COLOR = {
+  1: 'dot-filled-yellow',
+  2: 'dot-filled-blue',
+  3: 'dot-filled-green',
+}
+
+const LEVEL_LABEL = {
+  1: 'Beginner',
+  2: 'Intermediate',
+  3: 'Advanced',
+}
+%>
+
+<div class="skill-required">
+  <div class="skill-required-label">Prerequisites</div>
+
+  <% skills.forEach(skill => { %>
+    <%
+      const dotColor = DOT_COLOR[skill.filled] || 'dot-filled-yellow'
+      const levelLabel = skill.level || LEVEL_LABEL[skill.filled] || 'Beginner'
+    %>
+    <div class="skill-item">
+      <div class="skill-left">
+        <div class="skill-icon icon-<%= skill.icon %>"><%= skill.name %></div>
+        <div class="skill-info">
+          <span class="skill-name"><%= skill.name %></span>
+          <span class="skill-level"><%= levelLabel %></span>
+        </div>
+      </div>
+      <div class="skill-dots">
+        <% for (let i = 1; i <= 3; i++) { %>
+          <span class="skill-dot <%= i <= skill.filled ? dotColor : 'dot-empty' %>"></span>
+        <% } %>
+      </div>
+    </div>
+  <% }) %>
+</div>

@@ -1,0 +1,60 @@
+<div class="not-found">
+  <div class="not-found-code">404</div>
+  <h1 class="not-found-title">Halaman tidak ditemukan</h1>
+  <p class="not-found-desc">
+    Halaman yang kamu cari tidak ada atau sudah dipindahkan.
+    Cek kembali URL-nya, atau kembali ke halaman dokumentasi.
+  </p>
+  <div class="not-found-actions">
+    <a class="nf-btn-primary" href="/">Ke Dokumentasi</a>
+    <a class="nf-btn-secondary" href="javascript:history.back()">← Kembali</a>
+  </div>
+</div>
+
+<style>
+  .not-found {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center;
+    min-height: calc(100vh - var(--topbar-h));
+    padding: 40px 20px;
+
+    .not-found-code {
+      font-family: var(--font-mono); font-size: 96px; font-weight: 700;
+      color: var(--border); line-height: 1; letter-spacing: -4px;
+      margin-bottom: 16px; user-select: none;
+    }
+
+    .not-found-title {
+      font-size: 20px; font-weight: 600; color: var(--text-primary);
+      letter-spacing: -0.3px; margin-bottom: 10px;
+    }
+
+    .not-found-desc {
+      font-size: 14px; color: var(--text-muted);
+      line-height: 1.8; max-width: 360px; margin-bottom: 28px;
+    }
+
+    .not-found-actions {
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .nf-btn-primary {
+      font-size: 13px; font-weight: 500;
+      color: var(--bg-surface); background: var(--text-primary);
+      border: 1px solid var(--text-primary);
+      border-radius: var(--radius-md); padding: 7px 16px;
+      transition: opacity .15s; cursor: pointer;
+
+      &:hover { opacity: 0.8; }
+    }
+
+    .nf-btn-secondary {
+      font-size: 13px; font-weight: 500; color: var(--text-muted);
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 7px 16px;
+      transition: background .15s, color .15s; cursor: pointer;
+
+      &:hover { background: var(--bg-active); color: var(--text-primary); }
+    }
+  }
+</style>

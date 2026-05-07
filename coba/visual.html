@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visual</title>
+
+    <style>
+        :root {
+            --gelap: #0f0f0f;
+            --terang: #f0f0f0;
+
+
+            --biru: #a5ecf75c;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 1010px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+
+            .garisPotong {
+                /* bila memakai heigh: 100%; maka akan error dan menjadi kannya 0px
+                karena parent memakai min-height: 100vh;
+                jadi harus memaksanya dengan flex-grow*/
+                flex-grow: 1;
+
+                width: 100%;
+
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                gap: 12px;
+                .potong {
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--biru);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="garisPotong">
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+            <div class="potong"></div>
+        </div>
+    </div>
+</body>
+</html>
